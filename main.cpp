@@ -1,6 +1,24 @@
 #include<stdio.h>
-/*#include<conio.h>*/
 main()
 {
-	printf("Hello world");
+	int a,b;
+	printf("A=");
+	scanf("%i", &a);
+	printf("B=");
+	scanf("%i", &b);
+	if (a>b)
+	{
+		printf("Bolshe");
+	}
+	else
+	{
+		if (a==b)
+		{
+			printf("Ravnbl");
+		}
+		else
+		{
+			printf("Menshe");
+		}
+	}
 }
