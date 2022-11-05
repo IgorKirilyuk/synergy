@@ -1,24 +1,26 @@
-#include<stdio.h>
+#include <stdio.h>
 main()
 {
-	int a,b;
-	printf("A=");
-	scanf("%i", &a);
-	printf("B=");
-	scanf("%i", &b);
-	if (a>b)
+	int log, pas;
+	printf("log=");
+	scanf("%i",&log);
+	printf("pas=");
+	scanf("%i",&pas);
+	
+	if(((log==123)&&(pas==321))||((log==456)&&(pas==654)))
 	{
-		printf("Bolshe");
-	}
-	else
-	{
-		if (a==b)
+		if (log==123)
 		{
-			printf("Ravnbl");
+			/*printf("User1: OK; log=%i pas=%i",log,pas);*/
+			printf("User1: OK");
 		}
 		else
 		{
-			printf("Menshe");
+			printf("User2: OK");
 		}
+	}
+	else
+	{
+		printf("Error");
 	}
 }
