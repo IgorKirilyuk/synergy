@@ -1,26 +1,52 @@
 #include <stdio.h>
+
 main()
 {
-	int log, pas;
-	printf("log=");
-	scanf("%i",&log);
-	printf("pas=");
-	scanf("%i",&pas);
+	int day;
+	printf("Number day? ");
+	scanf("%i",&day);
 	
-	if(((log==123)&&(pas==321))||((log==456)&&(pas==654)))
+	switch(day)
 	{
-		if (log==123)
-		{
-			/*printf("User1: OK; log=%i pas=%i",log,pas);*/
-			printf("User1: OK");
-		}
-		else
-		{
-			printf("User2: OK");
-		}
+		case 1:
+			{
+				printf("Mon");
+			}
+			break;
+		case 2:
+			{
+				printf("Tue");
+			}
+			break;
+		case 3:
+			{
+				printf("Wed");
+			}
+			break;
+		case 4:
+			{
+				printf("Thur");
+			}
+			break;
+		case 5:
+			{
+				printf("Fri");
+			}
+			break;
+		case 6:
+			{
+				printf("Sat");
+			}
+			break;
+		case 7:
+			{
+				printf("Sun");
+			}
+			break;
+		default:
+			{
+				printf("Error");
+			}
 	}
-	else
-	{
-		printf("Error");
-	}
+	
 }
