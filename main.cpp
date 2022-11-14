@@ -22,7 +22,7 @@ main()
 	printf ("\n");
 	printf ("DZ3.5_2)\n");
 
-	int n, s;
+	int n, s=0;
 	for (n=5; n<16; n++)
 	s=s+(n);
 	printf ("s=%i \n",s);
