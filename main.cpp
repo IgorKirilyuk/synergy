@@ -1,36 +1,52 @@
 #include <stdio.h>
-#include <math.h>
+
 main()
 {
-	int i = 1;
-	printf ("DZ3.5_1)\n");
-	while (i < 10)
-	{
-		printf ("%i) Hello \n",i++);
-	}
-	
-	printf ("\n");
-	
-	for (i=0; i<15; i++)
-		printf ("i=%i \n",i);
-	
-	printf ("\n");
-	
-	for (i=1; i<15; i=i+2)
-		printf ("i=%i \n",i);
+	int i,t=0;
 
-	printf ("\n");
-	printf ("DZ3.5_2)\n");
+printf ("1)\n");
 
-	int n, s=0;
-	for (n=5; n<16; n++)
-	s=s+(n);
-	printf ("s=%i \n",s);
-	/*
+	for (i=1; i<=10; i++)
+		printf ("%i*5=%i \n",i,i*5);
+		
+
+printf ("2)\n");
+
+	while (t!=7)
 	{
-	printf ("n=%i \n",n);
-	printf ("s=%i \n",s=s+(n));
+		scanf("%i",&t);	
+/*
+		if (t==7) 
+		{
+	 		return(0);
+ 		}
+*/
+		printf ("t=%i \n",t);
+		if (t>7)
+		{
+			printf ("%i > 7 \n",t);
+		}
+		if (t<7)
+		{
+			printf ("%i < 7 \n",t);
+		}
+		if (t>10)
+		{
+			printf ("%i > 10 \n",t);
+		}
+		if (t<10)
+		{
+			printf ("%i < 10 \n",t);
+		}
+		if (t%2==0)
+		{
+			printf ("%i kratno 2 \n",t);
+		}
+		else printf ("%i ne kratno 2 \n",t);
+		if (t%3==0)
+		{
+			printf ("%i kratno 3 \n",t);
+		}
+		else printf ("%i ne kratno 3 \n",t);
 	}
-	*/
-	return(0);
 }
