@@ -4,23 +4,14 @@ main()
 {
 	int i,t=0;
 
-printf ("1)\n");
-
+	printf ("1)\n");
 	for (i=1; i<=10; i++)
-		printf ("%i*5=%i \n",i,i*5);
+	printf ("%i*5=%i \n",i,i*5);
 		
-
-printf ("2)\n");
-
+	printf ("2)\n");
 	while (t!=7)
 	{
 		scanf("%i",&t);	
-/*
-		if (t==7) 
-		{
-	 		return(0);
- 		}
-*/
 		printf ("t=%i \n",t);
 		if (t>7)
 		{
