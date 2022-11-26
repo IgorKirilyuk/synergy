@@ -1,14 +1,40 @@
 #include <stdio.h>
+#include <math.h>
 main()
 {
-	printf ("DZ3.7\n\n");
+	int qnt,min,max,sum=0,cur;
+	printf("qnt number? ");
+	scanf("%i",&qnt);
 	
-	int sum = 0;
-	for (int i=1; i<=100; i++)
+	if (qnt > 0)
 	{
-		sum=sum+i;
-	
+		for (int n=0; n < qnt; n++)
+		{
+			printf("number? ");
+			scanf("%i",&cur);
+			
+			if (n==0)
+			{
+				min=cur;
+				max=cur;
+			}
+			
+			if (cur < min)
+			{
+				min = cur;
+			}
+			
+			if (cur > max)
+			{
+				max = cur;
+			}
+			
+			sum = sum + cur;
+		}
+		
+		printf("min=%i \n",min);
+		printf("max=%i \n",max);
+		printf("sum=%i \n",sum);
+		printf("mid=%f \n",float(sum)/float(qnt));
 	}
-	
-	printf ("sum=%i \n",sum);
 }
