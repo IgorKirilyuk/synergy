@@ -1,40 +1,33 @@
 #include <stdio.h>
-#include <math.h>
+
 main()
 {
-	int qnt,min,max,sum=0,cur;
-	printf("qnt number? ");
-	scanf("%i",&qnt);
+	printf("DZ_4.2.1 \n\n");
 	
-	if (qnt > 0)
+	int m1[7];
+	for (int i=0; i<7; i++)
 	{
-		for (int n=0; n < qnt; n++)
-		{
-			printf("number? ");
-			scanf("%i",&cur);
-			
-			if (n==0)
-			{
-				min=cur;
-				max=cur;
-			}
-			
-			if (cur < min)
-			{
-				min = cur;
-			}
-			
-			if (cur > max)
-			{
-				max = cur;
-			}
-			
-			sum = sum + cur;
-		}
-		
-		printf("min=%i \n",min);
-		printf("max=%i \n",max);
-		printf("sum=%i \n",sum);
-		printf("mid=%f \n",float(sum)/float(qnt));
+		scanf("%i",&m1[i]);
+	}
+	for (int i=0; i<7; i++)
+	{
+		printf("%2i",m1[i]);
+	}
+
+	printf("\n\nDZ_4.2.2\n\n");
+	
+	int m2[100], n;
+	
+	printf("input qnt mas: ");
+	scanf("%i", &n);
+	printf("\n");
+	
+	for (int i=0; i<n; i++)
+	{
+		scanf("%i",&m2[i]);
+	}
+	for (int i=0; i<n; i++)
+	{
+		printf("%2i",m2[i]);
 	}
 }
