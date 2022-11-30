@@ -16,11 +16,16 @@ main()
 
 	printf("\n\nDZ_4.2.2\n\n");
 	
-	int m2[100], n;
+	int m2[100], n=0;
 	
 	printf("input qnt mas: ");
-	scanf("%i", &n);
-	printf("\n");
+	while ((n==0)||(n>99))
+	{
+		scanf("%i", &n);
+		if ((n==0)||(n>100)) printf("Error: n=(1:100)\n",n);
+		printf("\n");
+	}
+	
 	
 	for (int i=0; i<n; i++)
 	{
