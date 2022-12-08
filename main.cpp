@@ -2,9 +2,9 @@
 
 main()
 {
-	printf("\n\nDZ_4.3\n\n");
+	printf("DZ_4.4\n\n");
 	
-	int m2[100], n=0;
+	int m1[100], n=0;
 	
 	printf("input qnt mas: ");
 	while ((n==0)||(n>99))
@@ -16,27 +16,18 @@ main()
 	
 	for (int i=0; i<n; i++)
 	{
-		scanf("%i",&m2[i]);
+		scanf("%i",&m1[i]);
 	}
 	
-	bool fl=true;
-	while (fl)
+	int min,max,sum=0;
+	min=max=sum=m1[0];
+
+	for (int i=1; i<n; i++)
 	{
-		fl=false;
-		for (int i=0; i<n-1; i++)
-		{
-			if (m2[i]>m2[i+1])
-			{
-				int t=m2[i];
-				m2[i]=m2[i+1];
-				m2[i+1]=t;
-				fl=true;
-			}
-		}
+		sum=sum+m1[i];
+		if (min>m1[i]) min=m1[i];
+		if (max<m1[i]) max=m1[i];
 	}
 	
-	for (int i=0; i<n; i++)
-	{
-		printf("%4i",m2[i]);
-	}
+	printf("min=%i; max=%i; sum=%i; mid=%f\n",min,max,sum,(float)sum/(float)n);
 }
