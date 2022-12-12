@@ -1,8 +1,10 @@
 #include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
 
 main()
 {
-	printf("\n\nDZ_5.2\n\n");
+	printf("\n\nDZ_5.3\n\n");
 	
 	int mas[10][10], x=0, y=0;
 	
@@ -22,13 +24,13 @@ main()
 		printf("\n");
 	}
 	
-	printf("input mas (%i:%i):\n",x,y);
+	srand(time(NULL));
 	for (int x_=0; x_<x; x_++)
 	{
 		for (int y_=0; y_<y; y_++)
 		{
-			printf("input mas [%i:%i] = ",x_,y_);
-			scanf("%i",&mas[x_][y_]);
+			mas[x_][y_]= -2 + rand() % 7 ;
+			printf("mas[%i][%i]=%i\n",x_,y_,mas[x_][y_]);
 		}
 	}
 }
