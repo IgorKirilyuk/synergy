@@ -4,7 +4,7 @@
 
 main()
 {
-	printf("\n\nDZ_5.3\n\n");
+	printf("\n\nDZ_5.5\n\n");
 	
 	int mas[10][10], x=0, y=0;
 	
@@ -29,8 +29,47 @@ main()
 	{
 		for (int y_=0; y_<y; y_++)
 		{
-			mas[x_][y_]= -2 + rand() % 7 ;
-			printf("mas[%i][%i]=%i\n",x_,y_,mas[x_][y_]);
+			mas[x_][y_]= rand() % 10 ;
 		}
+	}
+	
+	printf("mas old\n");
+	for (int ty_=0; ty_<y; ty_++)
+	{
+		for (int tx_=0; tx_<x; tx_++)
+		{
+			printf("[%i]",mas[tx_][ty_]);
+		}
+		printf("\n");
+	}
+	
+	int rx_, rt_=0;
+	if (x<y) 
+		{
+			rx_=x;
+		}
+		else
+		{
+			rx_=y;
+		}
+	
+	for (int y_=0; y_<rx_; y_++)
+	{
+		for (int x_=0; x_<y_; x_++)
+		{
+			rt_=mas[x_][y_];
+			mas[x_][y_]=mas[y_][x_];
+			mas[y_][x_]=rt_;	
+		}
+	}
+	
+	printf("mas new\n");
+	for (int ty_=0; ty_<y; ty_++)
+	{
+		for (int tx_=0; tx_<x; tx_++)
+		{
+			printf("[%i]",mas[tx_][ty_]);
+		}
+		printf("\n");
 	}
 }
