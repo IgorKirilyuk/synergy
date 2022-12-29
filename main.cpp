@@ -4,25 +4,9 @@
 
 main()
 {
-	printf("\n\nDZ_5.5\n\n");
+	printf("\n\nDZ_5.6\n\n");
 	
-	int mas[10][10], x=0, y=0;
-	
-	printf("input qnt X mas: X=(1:10) = ");
-	while ((x<1)||(x>10))
-	{
-		scanf("%i", &x);
-		if ((x<1)||(x>10)) printf("Error: X=(1:10)\n");
-		printf("\n");
-	}
-
-	printf("input qnt Y mas: Y=(1:5) = ");
-	while ((y<1)||(y>5))
-	{
-		scanf("%i", &y);
-		if ((y<1)||(y>5)) printf("Error: X=(1:5)\n");
-		printf("\n");
-	}
+	int mas[4][3], x=4, y=3;
 	
 	srand(time(NULL));
 	for (int x_=0; x_<x; x_++)
@@ -32,8 +16,7 @@ main()
 			mas[x_][y_]= rand() % 10 ;
 		}
 	}
-	
-	printf("mas old\n");
+	printf("mas source\n");
 	for (int ty_=0; ty_<y; ty_++)
 	{
 		for (int tx_=0; tx_<x; tx_++)
@@ -43,27 +26,26 @@ main()
 		printf("\n");
 	}
 	
-	int rx_, rt_=0;
-	if (x<y) 
-		{
-			rx_=x;
-		}
-		else
-		{
-			rx_=y;
-		}
-	
-	for (int y_=0; y_<rx_; y_++)
+	for (int y_=0;y_<y;y_++)
 	{
-		for (int x_=0; x_<y_; x_++)
+		bool fl=true;
+		while (fl)
 		{
-			rt_=mas[x_][y_];
-			mas[x_][y_]=mas[y_][x_];
-			mas[y_][x_]=rt_;	
+			fl=false;
+			for (int x_=0; x_<x-1; x_++)
+			{
+				if (mas[x_][y_]>mas[x_+1][y_])
+				{
+					int t=mas[x_][y_];
+					mas[x_][y_]=mas[x_+1][y_];
+					mas[x_+1][y_]=t;
+					fl=true;
+				}
+			}
 		}
 	}
-	
-	printf("mas new\n");
+	printf("\n\n");
+	printf("mas sort\n");
 	for (int ty_=0; ty_<y; ty_++)
 	{
 		for (int tx_=0; tx_<x; tx_++)
@@ -72,4 +54,21 @@ main()
 		}
 		printf("\n");
 	}
+
+	for (int y_=0; y_<y;y_++)
+	{
+		int t_=mas[0][y_];
+		mas[0][y_]=mas[x-1][y_];
+		mas[x-1][y_]=t_;
+	}
+	printf("\n\n");
+	printf("mas fin\n");
+	for (int ty_=0; ty_<y; ty_++)
+	{
+		for (int tx_=0; tx_<x; tx_++)
+		{
+			printf("[%i]",mas[tx_][ty_]);
+		}
+		printf("\n");
+	}	
 }
