@@ -1,74 +1,45 @@
 #include <stdio.h>
-#include <stdlib.h>
-#include <time.h>
+#include <string.h>
 
 main()
 {
-	printf("\n\nDZ_5.6\n\n");
+	printf("\n\nDZ_6.3\n\n");
 	
-	int mas[4][3], x=4, y=3;
-	
-	srand(time(NULL));
-	for (int x_=0; x_<x; x_++)
+	printf("1)\n");
+	char str1[100];	
+	int x=0;
+	printf("String (2ch-99ch): ");
+	while ((x<2)||(x>99))
 	{
-		for (int y_=0; y_<y; y_++)
-		{
-			mas[x_][y_]= rand() % 10 ;
-		}
-	}
-	printf("mas source\n");
-	for (int ty_=0; ty_<y; ty_++)
-	{
-		for (int tx_=0; tx_<x; tx_++)
-		{
-			printf("[%i]",mas[tx_][ty_]);
-		}
+		gets(str1);
+		x=strlen(str1);
+		if ((x<2)||(x>99)) printf("Error: str=(2ch - 99ch)\n");
 		printf("\n");
 	}
+	printf("chr_2 = %c \n",str1[1]);
 	
-	for (int y_=0;y_<y;y_++)
+	printf("\n\n2)\n");
+	char c=str1[0];
+	printf("Las ch: %c\n",str1[strlen(str1)-1]);
+	str1[0]=str1[x-1];
+	str1[x-1]=c;
+	printf("new str: ");
+	puts(str1); 
+	
+	printf("\n\n2)\n");
+	
+	int del_;
+	while (del_<1||del_>x)
 	{
-		bool fl=true;
-		while (fl)
-		{
-			fl=false;
-			for (int x_=0; x_<x-1; x_++)
-			{
-				if (mas[x_][y_]>mas[x_+1][y_])
-				{
-					int t=mas[x_][y_];
-					mas[x_][y_]=mas[x_+1][y_];
-					mas[x_+1][y_]=t;
-					fl=true;
-				}
-			}
-		}
+		printf("num chr del: ");
+		scanf("%i",&del_);
+		if ((del_<1)||(del_>x)) printf("Error: Out of range\n");
 	}
-	printf("\n\n");
-	printf("mas sort\n");
-	for (int ty_=0; ty_<y; ty_++)
+	
+	for (int i=del_-1;i<x;i++)
 	{
-		for (int tx_=0; tx_<x; tx_++)
-		{
-			printf("[%i]",mas[tx_][ty_]);
-		}
-		printf("\n");
+		str1[i]=str1[i+1];
 	}
-
-	for (int y_=0; y_<y;y_++)
-	{
-		int t_=mas[0][y_];
-		mas[0][y_]=mas[x-1][y_];
-		mas[x-1][y_]=t_;
-	}
-	printf("\n\n");
-	printf("mas fin\n");
-	for (int ty_=0; ty_<y; ty_++)
-	{
-		for (int tx_=0; tx_<x; tx_++)
-		{
-			printf("[%i]",mas[tx_][ty_]);
-		}
-		printf("\n");
-	}	
+	printf("new str: ");
+	puts(str1); 
 }
