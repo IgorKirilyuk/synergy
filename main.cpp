@@ -1,58 +1,87 @@
 #include <stdio.h>
+#include <string.h>
 
-//DZ_7.3
+//ДЗ 7.4
+//Задание-1
+void str_1 ()
+{	
+	char str[100];	
+	int x=0;
+	
+	printf("String (1ch-99ch): ");
+	while ((x<1)||(x>99))
+	{
+		gets(str);
+		x=strlen(str);
+		if ((x<1)||(x>99)) printf("Error: str=(1ch - 99ch)\n");
+		printf("\n");
+	}
+	
+	int sl_=strlen(str);
+	char c_=str[0];
+	str[0]=str[sl_-1];
+	str[sl_-1]=c_;
+	puts(str);
+}
 
-int sqr_ (int a_)
+//Задание-2
+void str_2()
 {
-	for (int i=0; i<a_; i++)	
+	char str[100];	
+	int x=0;
+	
+	//заполняем массив
+	printf("String (1ch-99ch): ");
+	while ((x<1)||(x>99))
 	{
-		if (i*i==a_)
+		gets(str);
+		x=strlen(str);
+		if ((x<1)||(x>99)) printf("Error: str=(1ch - 99ch)\n");
+		printf("\n");
+	}
+	//определяем длину строки 
+	int sl_=strlen(str), fs_=-1, ls_=-1, i_=0;
+	
+	//определяем индекс первого символа НЕ ' '
+	while ((fs_==-1)&&(i_<sl_))
+	{
+		if (str[i_]!=' ')
 		{
-			return i;
+
+			fs_=i_;
 		}
+		i_++;
 	}
-	return 0;
-}
-
-
-void sqr_ (int a_, int *z_ )
-{	
-	for (int i=0; i<a_; i++)	
+	
+	//определяем индекс последнего символа НЕ ' '
+	i_=sl_-1;
+	while ((ls_==-1)&&(i_>-1))
 	{
-		if (i*i==a_)
+		if (str[i_]!=' ')
 		{
-		  *z_=i;
-		}	
+
+			ls_=i_;
+		}
+		i_--;
 	}
-}
+	//проверка индекса
+	//printf("\nls_=%i\n",ls_);
 
-
-void sqr_ (int a_, int &y_ )
-{	
-	for (int i=0; i<a_; i++)	
+	//удаляем проблеы в конце строки
+	str[ls_+1]=str[sl_];
+	
+	//удаляем пробелы в начале строки
+	sl_=strlen(str);
+	for (int i_=0; i_<sl_; i_++)
 	{
-		if (i*i==a_)
-		{
-		  y_=i;
-		}	
+		str[i_]=str[fs_+i_];
 	}
+	//вывод
+	puts(str);	
 }
 
 main()
 {
-	int t;
-	printf ("input int:");
-	scanf ("%i",&t);
-	printf ("\nsqr? %i",sqr_(t));
-	
-	int x=0;
-	int *z;
-	z=&x;
-	sqr_(t,z);
-	printf ("\nsqr? %i",*z);
-	
-	int y=0;
-	sqr_(t, y);
-	printf ("\nsqr? %i",y);
-	
+	str_1();
+	str_2();	
 }
