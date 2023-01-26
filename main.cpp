@@ -29,7 +29,7 @@ public:
 	};	
 	
 	//Вывод имени
-	void outp_name ()
+	virtual void outp_name ()
 	{
 		printf("Name: ");
 		puts(name_);
@@ -37,7 +37,7 @@ public:
 	};
 	
 	//ввод возраста персоны
-	void inp_age ()
+	virtual void inp_age ()
 	{
 		int x_= -1;
 		printf("Age: ");
@@ -52,7 +52,6 @@ public:
 			{
 				age_=x_;
 			}
-			printf("\n");
 		}
 	};
 	
@@ -72,7 +71,6 @@ public:
 			{
 				weight_=x_;
 			}
-			printf("\n");
 		}
 	};
 	
@@ -125,6 +123,7 @@ class Stud : public Persone {
 		
 	//модификация для студента - ввод возраста персоны
 	void inp_age ()
+	override
 	{
 		int x_= -1;
 		printf("Age: ");
@@ -149,7 +148,7 @@ class Stud : public Persone {
 
 
 //ЗАДАНИЕ №2
-//jопределение класса персоны
+//определение дочернего класса - сотрудник
 class Employee : public Persone 
 {
 
@@ -160,7 +159,6 @@ public:
 	//определение уровня достпа и перс скидки в конструкторе
 	Employee (int lvl, std::string name, int age)
 	{
-		
 		emp_name_=name;
 		age_=age;
 		
@@ -201,31 +199,35 @@ public:
 	}
 	
 	void outp_name ()
+	override
 	{
-		printf("Name: %s", emp_name_);
-		printf("\n");
+		std::cout << emp_name_ << "\n";
 	};
 };
 
 int main ()
 {
-	
+
+
 	Stud stud_(6);
 //вводд данных по студенту
 	stud_.inp_name();
 	stud_.inp_age();
 	stud_.inp_weight();
+	printf("\n");
 //Вывод данных по студенту
 	stud_.outp_name();
 	stud_.outp_age();
 	stud_.outp_weight();
 	printf("age after stud_time: %i\n", stud_.age_after_);
 	printf("\n");	
+
 	
 //Ввод данных по сотруднику
 	Employee empl_(2, "Bob", 33);
 //Вывод по сотруднику
-	std::cout << empl_.emp_name_ << "\n";
+	//std::cout << empl_.emp_name_ << "\n";
+	empl_.outp_name();
 	empl_.outp_age();
 	printf("pers level: %i\n", empl_.pers_level_);
 	printf("pers discont: %i\n", empl_.pers_discont);
